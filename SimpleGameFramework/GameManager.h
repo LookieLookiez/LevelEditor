@@ -40,17 +40,20 @@ public:
 
 	void SetPlayerInput(const Vector2i& newInput);
 	void OnMouseLClick(const Vector2i& loc);
-	void OnMouseRClick(const Vector2i& location);
+	void OnMouseRClick(const Vector2i& loc);
 	void OnMouseMove(const Vector2i& location);
-	ImageWrapper* image1;
+	
 	const Vector2i& GetScreenDimensions() const
 	{
 		//const_cast<GameManager*>(this)->dontChangeThis = true;
 		//dontChangeThis = true;
 		return screenDimensions;
 	}
-
+	ImageWrapper* image1;
+	int whichToPlace = 1;
+	
 private:
+	class myClass;
 	GameManager();
 	~GameManager();
 

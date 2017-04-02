@@ -34,19 +34,19 @@ void GameInput::Update(double deltaTime)
 	// The code below polls individual keys to determine if they are currently down.
 	if (GetKeyState('W') & 0x8000 || GetKeyState(VK_UP) & 0x8000)
 	{
-		movementInput.Y = -1;
+		movementInput.Y = -1 * PlayerInstance.playerMoveSpeed;
 	}
 	if (GetKeyState('A') & 0x8000 || GetKeyState(VK_LEFT) & 0x8000)
 	{
-		movementInput.X = -1;
+		movementInput.X = -1 * PlayerInstance.playerMoveSpeed;
 	}
 	if (GetKeyState('S') & 0x8000 || GetKeyState(VK_DOWN) & 0x8000)
 	{
-		movementInput.Y = 1;
+		movementInput.Y = 1 * PlayerInstance.playerMoveSpeed;
 	}
 	if (GetKeyState('D') & 0x8000 || GetKeyState(VK_RIGHT) & 0x8000)
 	{
-		movementInput.X = 1;
+		movementInput.X = 1 * PlayerInstance.playerMoveSpeed;
 	}
 
 	GameManagerInstance.SetPlayerInput(movementInput);
@@ -83,7 +83,8 @@ void GameInput::OnKeyDown(UINT keyCode, UINT repeatCount)
 			counter = 1;
 		}
 
-		GameManagerInstance.ChangeSelection(counter);
+			GameManagerInstance.ChangeSelection(counter);
+
 		break;
 	case 'C':
 		break;

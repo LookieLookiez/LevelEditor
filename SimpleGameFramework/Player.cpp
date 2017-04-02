@@ -2,6 +2,13 @@
 #include "Player.h"
 #include "GameManager.h"
 
+Player& Player::Instance()
+{
+	static Player instance;
+
+	return instance;
+}
+
 Player::Player()
 {
 }

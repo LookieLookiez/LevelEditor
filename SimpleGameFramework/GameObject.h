@@ -9,7 +9,11 @@ enum GameObjectType
 {
 	egotBase,
 	egotPlayer,
-	egotCheesecake
+	egotBlueOrb,
+	egotCoin,
+	egotStone,
+	egotDirt,
+	egotDirtGrass
 };
 
 class GameObject

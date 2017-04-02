@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "GameObject.h"
-#include "Cheesecake.h"
+#include "Coin.h"
 #include "Player.h"
+#include "BlueOrb.h"
 
 GameObject::GameObject()
 {
@@ -43,13 +44,34 @@ std::list<GameObject*> GameObject::LoadObjects(std::ifstream & is)
 		GameObjectType objectType = static_cast<GameObjectType>(dummyInt);
 
 		GameObject* objectPtr = nullptr;
-		if (objectType == egotCheesecake)
+
+		if (objectType == egotCoin)
 		{
-			objectPtr = new Cheesecake();
+			objectPtr = new Coin();
 		}
-		else if (objectType == egotPlayer)
+		if (objectType == egotPlayer)
 		{
 			objectPtr = new Player();
+		}
+		if (objectType == egotBlueOrb)
+		{
+			objectPtr = new BlueOrb();
+		}
+		if (objectType == egotCoin)
+		{
+			objectPtr = new BlueOrb();
+		}
+		if (objectType == egotStone)
+		{
+			objectPtr = new BlueOrb();
+		}
+		if (objectType == egotDirt)
+		{
+			objectPtr = new BlueOrb();
+		}
+		if (objectType == egotDirtGrass)
+		{
+			objectPtr = new BlueOrb();
 		}
 
 		// did we create something

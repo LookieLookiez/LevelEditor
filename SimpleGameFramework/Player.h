@@ -5,6 +5,7 @@
 class Player : public GameObject
 {
 public:
+	static Player& Instance();
 	Player();
 	virtual ~Player();
 
@@ -16,10 +17,11 @@ public:
 	virtual void Save(std::ofstream& os);
 	virtual void Load(std::ifstream& is);
 
+	int playerMoveSpeed = 5;
 protected:
 	virtual void RenderInternal(Gdiplus::Graphics& canvas);
 
 protected:
 	int health;
 };
-
+#define PlayerInstance (Player::Instance())
