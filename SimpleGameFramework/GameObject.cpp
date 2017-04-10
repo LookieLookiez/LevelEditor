@@ -3,6 +3,13 @@
 #include "Coin.h"
 #include "Player.h"
 #include "BlueOrb.h"
+#include "Stone.h"
+#include "Dirt.h"
+#include "DirtGrass.h"
+#include "Heart.h"
+#include "Leaves.h"
+#include "Sky.h"
+#include "Spikes.h"
 
 GameObject::GameObject()
 {
@@ -11,6 +18,7 @@ GameObject::GameObject()
 
 GameObject::~GameObject()
 {
+	
 }
 
 void GameObject::Render(Gdiplus::Graphics & canvas)
@@ -59,19 +67,35 @@ std::list<GameObject*> GameObject::LoadObjects(std::ifstream & is)
 		}
 		if (objectType == egotCoin)
 		{
-			objectPtr = new BlueOrb();
+			objectPtr = new Coin();
 		}
 		if (objectType == egotStone)
 		{
-			objectPtr = new BlueOrb();
+			objectPtr = new Stone();
 		}
 		if (objectType == egotDirt)
 		{
-			objectPtr = new BlueOrb();
+			objectPtr = new Dirt();
 		}
 		if (objectType == egotDirtGrass)
 		{
-			objectPtr = new BlueOrb();
+			objectPtr = new DirtGrass();
+		}
+		if (objectType == egotHeart)
+		{
+			objectPtr = new Heart();
+		}
+		if (objectType == egotLeaves)
+		{
+			objectPtr = new Leaves();
+		}
+		if (objectType == egotSky)
+		{
+			objectPtr = new Sky();
+		}
+		if (objectType == egotSpikes)
+		{
+			objectPtr = new Spikes();
 		}
 
 		// did we create something

@@ -31,6 +31,17 @@ void GameInput::Update(double deltaTime)
 {
 	Vector2i movementInput;
 
+	//Constant gravity on player
+	if (PlayerInstance.location.Y >= 0)
+	{
+		//return;
+	}
+	else
+	{
+		GameManagerInstance.SetPlayerInput(Vector2i(0, 1 * PlayerInstance.playerMoveSpeed));
+	}
+		
+
 	// The code below polls individual keys to determine if they are currently down.
 	if (GetKeyState('W') & 0x8000 || GetKeyState(VK_UP) & 0x8000)
 	{

@@ -51,7 +51,7 @@ public:
 	}
 	ImageWrapper* image1;
 	int whichToPlace = 1;
-	
+	Player* playerPtr;
 private:
 	class myClass;
 	GameManager();
@@ -62,7 +62,7 @@ private:
 	std::list<GameObject*> gameObjects;
 	//std::list<std::string*> imageIdentifier;
 	Vector2i mousePos;
-	Player* playerPtr;
+	
 
 	Vector2i screenDimensions;
 	bool dontChangeThis = false;

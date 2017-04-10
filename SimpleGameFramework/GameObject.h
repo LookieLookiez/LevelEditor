@@ -13,7 +13,12 @@ enum GameObjectType
 	egotCoin,
 	egotStone,
 	egotDirt,
-	egotDirtGrass
+	egotDirtGrass,
+	egotHeart,
+	egotLeaves,
+	egotSky,
+	egotSpikes
+	
 };
 
 class GameObject

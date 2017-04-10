@@ -5,6 +5,10 @@
 #include "Stone.h"
 #include "Dirt.h"
 #include "DirtGrass.h"
+#include "Heart.h"
+#include "Leaves.h"
+#include "Sky.h"
+#include "Spikes.h"
 
 GameManager& GameManager::Instance()
 {
@@ -20,6 +24,8 @@ GameManager::GameManager()
 GameManager::~GameManager()
 {
 }
+
+
 
 const char* Image1 = "Image1";
 const char* Image2 = "Image2";
@@ -254,6 +260,7 @@ void GameManager::OnMouseLClick(const Vector2i & loc)
 		gameObjects.push_back(newObject);
 	}
 		break;
+
 	case 2:
 	{
 		Coin* newObject = new Coin(gridBounds.Centre());
@@ -267,35 +274,49 @@ void GameManager::OnMouseLClick(const Vector2i & loc)
 		gameObjects.push_back(newObject);
 	}
 		break;
+
 	case 4:
 	{
 		Dirt* newObject = new Dirt(gridBounds.Centre());
 		gameObjects.push_back(newObject);
 	}
 		break;
+
 	case 5:
 	{
 		DirtGrass* newObject = new DirtGrass(gridBounds.Centre());
 		gameObjects.push_back(newObject);
 	}
 		break;
-	/*case 6:
-		BlueOrb* newObject = new BlueOrb(gridBounds.Centre());
+
+	case 6:
+	{
+		Heart* newObject = new Heart(gridBounds.Centre());
 		gameObjects.push_back(newObject);
+	}
 		break;
+
 	case 7:
-		BlueOrb* newObject = new BlueOrb(gridBounds.Centre());
+	{
+		Leaves* newObject = new Leaves(gridBounds.Centre());
 		gameObjects.push_back(newObject);
+	}
 		break;
+
 	case 8:
-		BlueOrb* newObject = new BlueOrb(gridBounds.Centre());
+	{
+		Sky* newObject = new Sky(gridBounds.Centre());
 		gameObjects.push_back(newObject);
+	}
 		break;
+
 	case 9:
-		BlueOrb* newObject = new BlueOrb(gridBounds.Centre());
+	{
+		Spikes* newObject = new Spikes(gridBounds.Centre());
 		gameObjects.push_back(newObject);
+	}
 		break;
-		*/
+		
 	}
 	
 }
