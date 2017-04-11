@@ -21,6 +21,7 @@ public:
 
 protected:
 	virtual void RenderInternal(Gdiplus::Graphics& canvas);
+	const char* Image1;
 
 };
 

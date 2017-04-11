@@ -3,10 +3,13 @@
 #include "GameManager.h"
 #include "GameFramework.h"
 
-
+ImageWrapper* image1;
 BlueOrb::BlueOrb(const Vector2i & _location)
 {
+	Image1 = "Image1";
 	location = _location;
+	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/blueOrb.png"), Image1);
+	image1 = GameFrameworkInstance.GetLoadedImage(Image1);
 }
 
 
@@ -32,8 +35,6 @@ void BlueOrb::Load(std::ifstream & is)
 
 void BlueOrb::RenderInternal(Gdiplus::Graphics & canvas)
 {
-	const char* Image1 = "Image1";
-	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/blueOrb.png"), Image1);
-	ImageWrapper* image1 = GameFrameworkInstance.GetLoadedImage(Image1);
+	
 	GameFrameworkInstance.DrawImage(canvas, Vector2i(-18, -14), image1);
 }

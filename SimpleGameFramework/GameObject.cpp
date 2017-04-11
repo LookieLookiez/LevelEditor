@@ -65,10 +65,6 @@ std::list<GameObject*> GameObject::LoadObjects(std::ifstream & is)
 		{
 			objectPtr = new BlueOrb();
 		}
-		if (objectType == egotCoin)
-		{
-			objectPtr = new Coin();
-		}
 		if (objectType == egotStone)
 		{
 			objectPtr = new Stone();

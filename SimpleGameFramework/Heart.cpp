@@ -3,9 +3,13 @@
 #include "GameManager.h"
 #include "GameFramework.h"
 
+ImageWrapper* image6;
 Heart::Heart(const Vector2i& _location)
 {
+	Image1 = "Image1";
 	location = _location;
+	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/heart.png"), Image1);
+	image6 = GameFrameworkInstance.GetLoadedImage(Image1);
 }
 
 
@@ -35,9 +39,5 @@ void Heart::Load(std::ifstream & is)
 
 void Heart::RenderInternal(Gdiplus::Graphics & canvas)
 {
-
-	const char* Image1 = "Image1";
-	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/heart.png"), Image1);
-	ImageWrapper* image1 = GameFrameworkInstance.GetLoadedImage(Image1);
-	GameFrameworkInstance.DrawImage(canvas, Vector2i(-15, -18), image1);
+	GameFrameworkInstance.DrawImage(canvas, Vector2i(-15, -18), image6);
 }

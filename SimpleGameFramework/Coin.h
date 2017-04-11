@@ -15,11 +15,11 @@ public:
 
 	virtual void Save(std::ofstream& os);
 	virtual void Load(std::ifstream& is);
-	
+
 
 protected:
 	virtual void RenderInternal(Gdiplus::Graphics& canvas);
-
+	const char* Image1;
 };
 
 

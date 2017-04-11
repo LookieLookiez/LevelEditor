@@ -3,9 +3,13 @@
 #include "GameManager.h"
 #include "GameFramework.h"
 
+ImageWrapper* image8;
 Sky::Sky(const Vector2i& _location)
 {
+	Image1 = "Image1";
 	location = _location;
+	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/skyBlock.png"), Image1);
+	image8 = GameFrameworkInstance.GetLoadedImage(Image1);
 }
 
 
@@ -36,9 +40,6 @@ void Sky::Load(std::ifstream & is)
 void Sky::RenderInternal(Gdiplus::Graphics & canvas)
 {
 
-	const char* Image1 = "Image1";
-	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/skyBlock.png"), Image1);
-	ImageWrapper* image1 = GameFrameworkInstance.GetLoadedImage(Image1);
-	GameFrameworkInstance.DrawImage(canvas, Vector2i(-16, -16), image1);
+	GameFrameworkInstance.DrawImage(canvas, Vector2i(-16, -16), image8);
 }
 

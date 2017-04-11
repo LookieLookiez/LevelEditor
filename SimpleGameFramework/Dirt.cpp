@@ -3,9 +3,13 @@
 #include "GameManager.h"
 #include "GameFramework.h"
 
+ImageWrapper* image4;
 Dirt::Dirt(const Vector2i& _location)
 {
+	Image1 = "Image1";
 	location = _location;
+	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/dirtBlock.png"), Image1);
+	image4 = GameFrameworkInstance.GetLoadedImage(Image1);
 }
 
 
@@ -36,8 +40,5 @@ void Dirt::Load(std::ifstream & is)
 void Dirt::RenderInternal(Gdiplus::Graphics & canvas)
 {
 
-	const char* Image1 = "Image1";
-	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/dirtBlock.png"), Image1);
-	ImageWrapper* image1 = GameFrameworkInstance.GetLoadedImage(Image1);
-	GameFrameworkInstance.DrawImage(canvas, Vector2i(-16, -16), image1);
+	GameFrameworkInstance.DrawImage(canvas, Vector2i(-16, -16), image4);
 }

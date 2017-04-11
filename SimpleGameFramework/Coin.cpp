@@ -3,9 +3,15 @@
 #include "GameManager.h"
 #include "GameFramework.h"
 
+
+	
+	ImageWrapper* image2;
 Coin::Coin(const Vector2i& _location)
 {
+	Image1 = "Image1";
 	location = _location;
+	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/coin.png"), Image1);
+	image2 = GameFrameworkInstance.GetLoadedImage(Image1);
 }
 
 
@@ -35,9 +41,5 @@ void Coin::Load(std::ifstream & is)
 
 void Coin::RenderInternal(Gdiplus::Graphics & canvas)
 {
-	
-	const char* Image1 = "Image1";
-	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/coin.png"), Image1);
-	ImageWrapper* image1 = GameFrameworkInstance.GetLoadedImage(Image1);
-	GameFrameworkInstance.DrawImage(canvas, Vector2i(-13, -15), image1);
+	GameFrameworkInstance.DrawImage(canvas, Vector2i(-13, -15), image2);
 }

@@ -3,9 +3,13 @@
 #include "GameManager.h"
 #include "GameFramework.h"
 
+ImageWrapper* image7;
 Leaves::Leaves(const Vector2i& _location)
 {
+	Image1 = "Image1";
 	location = _location;
+	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/leavesBlock.png"), Image1);
+	image7 = GameFrameworkInstance.GetLoadedImage(Image1);
 }
 
 
@@ -36,8 +40,5 @@ void Leaves::Load(std::ifstream & is)
 void Leaves::RenderInternal(Gdiplus::Graphics & canvas)
 {
 
-	const char* Image1 = "Image1";
-	GameFrameworkInstance.LoadImageResource(AppConfigInstance.GetResourcePath("Images/leavesBlock.png"), Image1);
-	ImageWrapper* image1 = GameFrameworkInstance.GetLoadedImage(Image1);
-	GameFrameworkInstance.DrawImage(canvas, Vector2i(-16, -16), image1);
+	GameFrameworkInstance.DrawImage(canvas, Vector2i(-16, -16), image7);
 }
